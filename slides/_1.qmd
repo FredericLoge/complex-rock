@@ -1,0 +1,157 @@
+# Comparing scatter plots
+
+Please open `notebook_1_starwars_graphs.ipynb`.
+
+![](img/scatterplot_meme.jpg){width=50% fig-align="center"}
+
+## `starwars` dataset {.smaller}
+
+We will work on the `starwars` characters dataset, and make the sample plot with different libraries.
+
+```{=html}
+<style>
+div.cell[data-code-nextto-output="true"] > .sourceCode.cell-code {
+    float: left; 
+    width: 50%;
+}
+</style>
+```
+
+```{python}
+import pandas as pd
+
+url = "https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"
+
+df = (
+  pd.read_csv(url)
+  .drop(columns=['films', 'vehicles', 'starships'])
+  .dropna(subset=["height", "mass"])
+  .query('mass<1000') # excl. Jabba
+)
+
+print(f'{df.shape[0]} rows in the dataset\n')
+print('First character is:')
+print(df.iloc[0])
+```
+
+## `matplotlib`
+
+is the basic method for viz in python, can mix a lot of methods but it tends to be very verbose even for simple cases (see here for just adding a legend 🙈)
+
+```{python}
+import matplotlib.pyplot as plt
+
+plt.figure()
+scatter = plt.scatter(
+    df["height"],
+    df["mass"],
+    c=pd.Categorical(df["eye_color"]).codes,  # convert category → numeric colors
+    cmap="tab10",
+)
+
+plt.xlabel("Height (cm)")
+plt.ylabel("Mass (kg)")
+plt.title("Star Wars Characters: Height vs Mass")
+
+# legend
+eye_colors = df["eye_color"].astype("category")
+handles = [
+    plt.Line2D([], [], marker="o", linestyle="", color=scatter.cmap(scatter.norm(code)))
+    for code in range(len(eye_colors.cat.categories))
+]
+plt.legend(handles, eye_colors.cat.categories, title="Eye Color")
+
+plt.show()
+```
+
+## `plotly`
+
+`plotly` knows two variations: graph objects and express express is super easy to use, graph objects less but allows to go further in complexity of graphs
+
+the main advantage of plotly is how easy it is to interact with the scales of the graph, the groups and specific data points
+
+```{python}
+import plotly.express as px
+
+fig = px.scatter(
+    df,
+    x="height",
+    y="mass",
+    color="eye_color",  
+    hover_data={
+        "name": True, # adding name
+        "homeworld": True, # adding home world
+        "height": ":.0f", # formatting height
+    },
+    title="Star Wars Characters: Height vs Mass"
+)
+
+fig.update_traces(marker=dict(size=10, opacity=0.8))
+fig.show()
+```
+
+## `altair`
+
+`altair` has an interesting style of variable declaration and produces very beautiful outputs
+
+```{python}
+import altair as alt
+
+chart = alt.Chart(df).mark_circle().encode(
+    x=alt.X("height", title="Height (cm)"),
+    y=alt.Y("mass", title="Mass (kg)"),
+    color=alt.Color("eye_color", title="Eye Color"),
+    tooltip=["name", "species", "height", "mass", "eye_color"]
+).properties(title="Star Wars Characters: Height vs Mass")
+
+chart.interactive()
+```
+
+## `plotnine`
+
+`plotnine` follows the grammar of graphics style:
+
+```{python}
+import plotnine as pn
+
+my_plot = (
+  pn.ggplot(data=df)+
+  pn.aes(x='height', y='mass', color='eye_color')+
+  pn.geom_point()+
+  pn.labs(
+    x='Height (cm)', y='Mass (kg)', color='Eye Color',
+    title='Star Wars Characters: Height vs Mass'
+  )
+)
+
+my_plot
+```
+
+## Transcription table
+
+There are a lot of common functionalities,
+
+| `matplotlib` | `plotly express` | `altair`  | `plotnine`  |
+|------|------|------|------|
+| .scatter | .scatter | .mark_point | geom_point |
+| .plot | .line     | .mark_line | geom_line |
+|      | .      | .mark_rect | geom_rect |
+|       | .[h&#124;v]line   | .mark_rule | geom_[h&#124;v]line |
+|       | .scatter  | .mark_text | geom_text |
+|       |   | .mark_tick | geom_rug |
+|       | .area  | .mark_area | geom_area |
+: Relatively equivalent methods from each libraries
+
+**but** some libraries require more work than others depending on the usecase.
+
+## Exo 1: violin plots
+
+Choose one quanti and one quali variable in the dataset. Do a violin plot using `plotnine` and again using `altair`.
+
+:::{.callout-warning title="No AI Agents please"}
+The libraries documentations and stackoverflow should be enough. 
+:::
+
+# Dashboard
+
+also a lot of diversity DASH Shiny Streamlit Panel Taipy Gradio

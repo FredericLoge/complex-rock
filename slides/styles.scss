@@ -1,0 +1,18 @@
+/*-- scss:rules --*/
+
+#title-slide {
+  .title {
+    font-size: 4em;
+    color: #000000;
+  }
+}
+
+.reveal .slide-logo {
+   max-height: 3em !important;
+}
+
+body {
+  background-image: url("https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

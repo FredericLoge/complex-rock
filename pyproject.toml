@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "complex-rock"
+version = "0.1.0"
+description = ""
+authors = ["FredericLoge <frederic.logemunerel@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+pandas = "^2.3.3"
+matplotlib = "^3.10.7"
+seaborn = "^0.13.2"
+plotnine = "^0.15.1"
+streamlit = "^1.51.0"
+dash = "^3.3.0"
+panel = "^1.8.3"
+jupyter = "^1.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

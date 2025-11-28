@@ -1,0 +1,31 @@
+---
+title: Data Viz in ![](img/logo/python.svg){width=10%}
+title-slide-attributes:
+    data-background-image: img/moucherotte.jpg
+    data-background-opacity: "0.5"
+date: 2025-12-01
+author:
+  - name: Frédéric Logé
+    email: frederic.logemunerel@gmail.com
+format: 
+  revealjs:
+    callout-icon: false
+    auto-stretch: false
+    echo: true
+    code-fold: true
+    scrollable: true
+    code-summary: "show/hide"
+    page-layout: full 
+    margin-left: 0em 
+    margin-right: 0em 
+    smaller: true
+    toc: true
+    toc-depth: 1
+    logo: img/logo/cepe.png
+    theme: [simple, styles.scss]
+editor: visual
+---
+
+{{< include _0.qmd >}}
+
+{{< include _1.qmd >}}

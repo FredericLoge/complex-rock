@@ -1,0 +1,33 @@
+# Introduction
+
+![](img/homer.jpg){width="50%" fig-align="center"}
+
+## The **problem** is Choice
+
+![](img/logo/matplotlib.png){height="100px" fig-align="center"} ![](img/logo/seaborn.svg){height="100px" fig-align="center"} ![](img/logo/dash.png){height="100px" fig-align="center"}![](img/logo/gradio.svg){height="100px" fig-align="center"} ![](img/logo/plotnine.png){height="100px" fig-align="center"} ![Folium](img/logo/folium.png){height="100px" fig-align="center"} ![Vega-Altair](img/logo/altair.png){height="100px" fig-align="center"} ![](img/logo/bokeh.png){max-width="100px" fig-align="center" width="100" height="29"} ![](img/logo/streamlit.png){fig-align="center" width="154"} ![](img/logo/taipy.png){height="100px" fig-align="center"} ![](img/logo/voila.svg){fig-align="center" width="147"} ![](img/logo/panel.png){height="100px" fig-align="center"}![](img/logo/holoviews.png){height="100px" fig-align="center"}![](img/logo/geoviews.png){height="100px" fig-align="center"} ![](img/logo/hvplot.png){height="100px" fig-align="center"}
+
+Common deciding factors are: code readability, ease of use, support from the community, code maturity, active developer**s**, aesthetics, habit, ...
+
+## My objectives for today's session
+
+1.  Provide you with **several** good options for **data viz** (from graphs to dashboards)
+2.  Ensure interaction and take time for some **practice**
+3.  Discuss the importance of reproducibility, testing & deployment.
+
+. . .
+
+::: callout-note
+## No AI Agent please
+
+For several exercises of today, and today only, I'll ask you to restrain from using your favorite code helper. The reason is very simple: for you to get a minimum of practice with the methods of the different libraries, I chose relatively simple exercises. As such, if you just toss them to an AI, where is our interaction going to be remotely interesting for you?
+:::
+
+## Program
+
+This morning, we'll look into different libraries to **represent data** (`altair`, `plotly`, `plotnine` & others), check out how they work, understand their differences and get a taste of each.
+
+This afternoon, we'll dive into different libraries for **data-backed dashboards** using libraries such as `Dash`, `Panel` & `Streamlit`.
+
+. . .
+
+🙋 **Any questions ?**
