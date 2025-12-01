@@ -36,7 +36,9 @@ editor: visual
 
 <!-- {{< include _1.qmd >}} -->
 
-# Resources
+# Extra
+
+## Resources
 
 obliviously not exhaustive 😉
 
@@ -49,3 +51,13 @@ obliviously not exhaustive 😉
 [`plotnine` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/plotnine.pdf)
 
 [`altair` docs](https://altair-viz.github.io/)
+
+## Dependency management
+
+`pyenv` allows you to install specific python versions
+
+`poetry` or `uv` are good dependency management softwares, with very clear documentation. It is an essential to (a) preserve your own projects throughout time (b) facilitate sharing between collaborators.
+
+:::{.callout}
+In order to run the code on windows machine, use `python -m shiny run` might be required
+:::
