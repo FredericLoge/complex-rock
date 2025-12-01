@@ -1,0 +1,21 @@
+# Introduction
+
+## Objectives for today's session
+
+1.  End of day, you have a good starter kit for **data viz**, for graphs & dashboards
+2.  The session should be interactive and ~2/3 of **practice**
+3.  Opportunity to **discover libraries** you might not use regularly
+4.  Discuss the importance of **reproducibility, testing & deployment**
+
+. . .
+
+🙋 **Any questions ?**
+
+## I have a question 🙋
+
+Where does data visualization fit in this data science life cycle ? what about dashboards ?
+
+. . .
+
+![Data Science Lifecycle [source](https://unstop.com/blog/data-science-life-cycle)](img/data_science_life_cycle_v0.jpg){fig-align="center"}
+

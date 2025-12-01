@@ -12,20 +12,40 @@ format:
     callout-icon: false
     auto-stretch: false
     echo: true
-    code-fold: true
-    scrollable: true
+    eval: false
+    output: false
+    code-fold: false
+    scrollable: false
     code-summary: "show/hide"
-    page-layout: full 
-    margin-left: 0em 
-    margin-right: 0em 
     smaller: true
     toc: true
     toc-depth: 1
+    toc-title: "Program"
     logo: img/logo/cepe.png
     theme: [simple, styles.scss]
 editor: visual
 ---
 
-{{< include _0.qmd >}}
+{{< include _0_introduction.qmd >}}
 
-{{< include _1.qmd >}}
+{{< include _1_dataviz.qmd >}}
+
+{{< include _2_dataapp.qmd >}}
+
+<!-- {{< include _0.qmd >}} -->
+
+<!-- {{< include _1.qmd >}} -->
+
+# Resources
+
+obliviously not exhaustive 😉
+
+[`shiny` API](https://shiny.posit.co/py/api/core/)
+
+[`panel` docs](https://panel.holoviz.org/index.html)
+
+[`plotly` docs](https://plotly.com/python/)
+
+[`plotnine` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/plotnine.pdf)
+
+[`altair` docs](https://altair-viz.github.io/)

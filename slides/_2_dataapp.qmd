@@ -1,0 +1,185 @@
+# Dashboards
+
+## Code structure for data apps
+
+Most libraries help you code in python as wrapper for html, css and JS code. As such, you have essentially the following five code sections to handle:
+
+::: {.incremental}
+1. **Inputs** come from the user e.g. data, filter selection, action request
+
+2. **Outputs** are expected to be updated with the provided input e.g. a table is displayed for a given input filter, a graph generated for variables specified in input
+
+3. **Reactivity** is the way of connecting inputs to outputs i.e. making sure that an when an input is changed the proper output is modified
+
+4. **Layout** is how every element is organized on the app e.g. tabs, menus, column pagination
+
+5. **Style** is how every element actually looks when it is displayed (pure CSS behind it)
+:::
+
+## General Development process
+
+![](img/iterations.png){height=600px fig-align='center'}
+
+## `shiny`: a reliable start base
+
+```{python}
+#| code-line-numbers: "|8-14|16-24|10-12,22|13,18-24"
+# in terminal: shiny run --reload basic-app-example-shiny.py
+from shiny import App, render, ui
+import plotnine as pn
+import pandas as pd
+
+df = pd.read_csv("https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv")
+
+## user interface (UI) definition
+app_ui = ui.page_fixed(                               # HTML/CSS/JS content
+    ui.input_select(                                  # UI Input Element
+        id="var", label="Select variable", choices=["height", "mass"]
+    ),
+    ui.output_plot("hist")                            # UI Output Element
+)
+
+## server function provides access to client-side input values
+def server(input):                          # python function
+    @render.plot                            # indicate reactivity + output type
+    def hist():
+        return (
+          pn.ggplot(data=df)+
+          pn.aes(x=input.var())+ # accessing input.var() value
+          pn.geom_histogram()
+        )
+
+app = App(app_ui, server)
+```
+
+
+## Practice Time 💻 
+
+1. Run the app locally
+
+2. Add two inputs
+
+3. Add three outputs
+
+4. Improve layout / presentation
+
+5. 🍪 / ☕️
+
+
+## Quick tour of other approaches
+
+::::{.columns}
+:::{.column width=50%}
+![](img/logo/dash.png){height="100px" fig-align="center"}
+
+![](img/logo/panel.png){height="100px" fig-align="center"}
+
+![](img/logo/streamlit.png){fig-align="center" width="154"}
+:::
+:::{.column width=50%}
+![](img/logo/taipy.png){height="100px" fig-align="center"}
+
+![](img/logo/gradio.svg){height="100px" fig-align="center"}
+
+![](img/logo/voila.svg){fig-align="center" width="147"}
+:::
+::::
+
+## `Dash` example
+
+```{python}
+#| code-line-numbers: ""
+# in terminal: python basic-app-example-dash.py
+import dash
+from dash import dcc, html, Input, Output
+import plotly.express as px
+import pandas as pd
+
+df = pd.read_csv("https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv")
+
+app = dash.Dash(__name__)
+
+app.layout = html.Div([
+    dcc.Dropdown(id="var", options=["mass", "height"],       # UI Input Element
+      value="mass", clearable=False),                        
+    dcc.Graph(id="hist")                                     # UI Output Element
+])
+
+@app.callback(                       # callback: update the var selected changes
+    Output("hist", "figure"),
+    Input("var", "value")
+)
+def update_hist(selected_var):
+    return px.histogram(df, x=selected_var, title=f"Histogram of {selected_var}")
+
+app.run(debug=True, use_reloader=False) # debugger is super useful!
+```
+
+## `Panel` example
+
+```{python}
+# panel serve basic-app-example-panel.py --dev
+import panel as pan
+import pandas as pd
+import plotly.express as px
+pan.extension('plotly')
+df = pd.read_csv("https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv")
+
+var = pan.widgets.Select(                                     # UI Input element
+    name="Select variable", options=["mass", "height"], value="mass"
+)
+
+def make_plot(selected_var):                  # python function to update output
+    return px.histogram( 
+      df, x=selected_var, title=f"Histogram of {selected_var}"
+    )
+
+interactive_plot = pan.bind(               # binding output function to an input
+  make_plot, selected_var=var
+)
+
+app = pan.Column(                       # Layout
+    var,                                # Input
+    pan.pane.Plotly(interactive_plot)   # Output
+)
+
+app.servable()
+```
+
+## `Streamlit` example
+
+```{python}
+# in terminal:  streamlit run basic-app-example-streamlit.py
+
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv("https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv")
+
+var = st.selectbox(                                 # UI Input
+    "Select variable:",
+    ["mass", "height"],
+    index=0
+)
+
+fig = px.histogram(                                 # Output computation 
+    df,
+    x=var,
+    title=f"Histogram of {var}"
+)
+
+st.plotly_chart(fig, use_container_width=True)      # UI Output
+```
+
+## Going further{.smaller}
+
+**Code organization**: as I'm sure you've noticed, it can get messy very quickly when programming dashboards. Common sense prevails: add comments, clear names, refactor in functions or classes and move code outside.
+
+. . .
+
+**Deployment**: using your app locally for individual usage or POCs is fine, but the ultimate goal is to make it available to internal and external users. The most common approach is to package your code (common approach is to create a Docker image) and make it run on servers either locally or on a cloud-based service. Here's a non-exhaustive list of hosting services: AWS EC2, Hugging Face, Azure, GCP shinyapps.io, Plotly Cloud, Heroku, see [more](https://panel.holoviz.org/how_to/deployment/index.html). If you have a Data Engineer friend, now's the time to call them.
+
+. . .
+
+**What it's not**: those libraries were intended to facilitate any Data Scientist's life to be able to show and deploy analyses, statistics and models, by having to not care about HTML, CSS and Javascript. Although you could make a chess game using those libraries, that would be a strange technical choice. If you want to create a static website with no ties to data, again very strange. If you want to make a full-on website, then it's just not the right tool. 

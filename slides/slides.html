@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slides_files/libs/clipboard/clipboard.min.js"></script>
 <script src="slides_files/libs/quarto-html/tabby.min.js"></script>
 <script src="slides_files/libs/quarto-html/popper.min.js"></script>
 <script src="slides_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -12,7 +12,7 @@
 
   <meta name="author" content="Frédéric Logé">
   <meta name="dcterms.date" content="2025-12-01">
-  <title>Data Viz   </title>
+  <title>Data Viz in </title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -310,7 +310,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -387,16 +386,13 @@
       margin-right: 0; 
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-  
-  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" data-background-image="img/moucherotte.jpg" data-background-opacity="0.5" class="quarto-title-block center">
-  <h1 class="title">Data Viz <br> <img data-src="img/logo/python.svg" style="width:30.0%"></h1>
+  <h1 class="title">Data Viz in <img data-src="img/logo/python.svg" style="width:10.0%"></h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -412,118 +408,197 @@ Frédéric Logé
   <p class="date">2025-12-01</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
-<h2 id="toc-title">Table of contents</h2>
+<h2 id="toc-title">Program</h2>
 <ul>
 <li><a href="#/introduction" id="/toc-introduction">Introduction</a></li>
-<li><a href="#/comparing-scatter-plots" id="/toc-comparing-scatter-plots">Comparing scatter plots</a></li>
-<li><a href="#/dashboard" id="/toc-dashboard">Dashboard</a></li>
+<li><a href="#/graphics" id="/toc-graphics">Graphics</a></li>
+<li><a href="#/dashboards" id="/toc-dashboards">Dashboards</a></li>
+<li><a href="#/resources" id="/toc-resources">Resources</a></li>
 </ul>
 </nav>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center">
 <h1>Introduction</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/homer.jpg" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
+
 </section>
-<section id="all-i-want-for-christmas-is-my-plot" class="slide level2">
-<h2>🎵 All I want for Christmas … is my plot</h2>
-<p><img data-src="img/logo/matplotlib.png" class="quarto-figure quarto-figure-center" height="100"> <img data-src="img/logo/seaborn.svg" class="quarto-figure quarto-figure-center" height="100"> <img data-src="img/logo/dash.png" class="quarto-figure quarto-figure-center" height="100"><img data-src="img/logo/gradio.svg" class="quarto-figure quarto-figure-center" height="100"> <img data-src="img/logo/plotnine.png" class="quarto-figure quarto-figure-center" height="100"> <img data-src="img/logo/folium.png" class="quarto-figure quarto-figure-center" height="100" alt="Folium"> <img data-src="img/logo/altair.png" class="quarto-figure quarto-figure-center" height="100" alt="Vega-Altair"> <img data-src="img/logo/bokeh.png" class="quarto-figure quarto-figure-center" data-max-width="100px" width="100" height="29"> <img data-src="img/logo/streamlit.png" class="quarto-figure quarto-figure-center" width="154"> <img data-src="img/logo/taipy.png" class="quarto-figure quarto-figure-center" height="100"> <img data-src="img/logo/voila.svg" class="quarto-figure quarto-figure-center" width="147"> <img data-src="img/logo/panel.png" class="quarto-figure quarto-figure-center" height="100"><img data-src="img/logo/holoviews.png" class="quarto-figure quarto-figure-center" height="100"><img data-src="img/logo/geoviews.png" class="quarto-figure quarto-figure-center" height="100"> <img data-src="img/logo/hvplot.png" class="quarto-figure quarto-figure-center" height="100"></p>
-<p>Common deciding factors are: code readability, ease of use, support from the community, code maturity, active developer<strong>s</strong>, aesthetics, habit, …</p>
-</section>
-<section id="my-objectives-for-todays-session" class="slide level2 scrollable">
-<h2>My objectives for today’s session</h2>
+<section id="objectives-for-todays-session" class="slide level2">
+<h2>Objectives for today’s session</h2>
 <ol type="1">
-<li>Provide you with <strong>several</strong> good options for <strong>data viz</strong> (from graphs to dashboards)</li>
-<li>Ensure interaction and take time for some <strong>practice</strong></li>
-<li>Discuss the importance of reproducibility, testing &amp; deployment.</li>
+<li>End of day, you have a good starter kit for <strong>data viz</strong>, for graphs &amp; dashboards</li>
+<li>The session should be interactive and ~2/3 of <strong>practice</strong></li>
+<li>Opportunity to <strong>discover libraries</strong> you might not use regularly</li>
+<li>Discuss the importance of <strong>reproducibility, testing &amp; deployment</strong></li>
 </ol>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>No AI Agent please</strong></p>
-</div>
-<div class="callout-content">
-<p>For several exercises of today, and today only, I’ll ask you to restrain from using your favorite code helper. The reason is very simple: for you to get a minimum of practice with the methods of the different libraries, I chose relatively simple exercises. As such, if you just toss them to an AI, where is our interaction going to be remotely interesting for you?</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="program" class="slide level2">
-<h2>Program</h2>
-<p>This morning, we’ll look into different libraries to <strong>represent data</strong> (<code>altair</code>, <code>plotly</code>, <code>plotnine</code> &amp; others), check out how they work, understand their differences and get a taste of each.</p>
-<p>This afternoon, we’ll dive into different libraries for <strong>data-backed dashboards</strong> using libraries such as <code>Dash</code>, <code>Panel</code> &amp; <code>Streamlit</code>.</p>
 <div class="fragment">
 <p>🙋 <strong>Any questions ?</strong></p>
 </div>
-</section></section>
-<section>
-<section id="comparing-scatter-plots" class="title-slide slide level1 center">
-<h1>Comparing scatter plots</h1>
-<p>Please open <code>notebook_1_starwars_graphs.ipynb</code>.</p>
+</section>
+<section id="i-have-a-question" class="slide level2">
+<h2>I have a question 🙋</h2>
+<p>Where does data visualization fit in this data science life cycle ? what about dashboards ?</p>
+<div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/scatterplot_meme.jpg" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+<p><img data-src="img/data_science_life_cycle_v0.jpg" class="quarto-figure quarto-figure-center"></p>
+<figcaption>Data Science Lifecycle <a href="https://unstop.com/blog/data-science-life-cycle">source</a></figcaption>
+</figure>
+</div>
+</div>
+</section></section>
+<section>
+<section id="graphics" class="title-slide slide level1 center">
+<h1>Graphics</h1>
+
+</section>
+<section id="grammar-of-graphics" class="slide level2">
+<h2>Grammar of Graphics</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Grammar of graphics following Hadley Wickham, Chief Scientist @ <a href="https://posit.co/">posit</a>:</p>
+<ol type="1">
+<li><p>Data</p></li>
+<li><p>Aesthetics</p></li>
+<li><p>Geometries</p></li>
+<li><p>Facets</p></li>
+<li><p>Statistics</p></li>
+<li><p>Coordinates</p></li>
+<li><p>Theme</p></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/gog.jpg" style="width:50.0%"></p>
+<figcaption><a href="https://www.nzdr.ru/data/media/biblio/kolxoz/Cs/CsCg/Wilkinson%20L.%20The%20grammar%20of%20graphics%20(2ed.,%20Springer,%202005)(ISBN%200387245448)(O)(693s)_CsCg_.pdf">Grammar of graphics</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="plotnine-a-good-place-to-start" class="slide level2">
+<h2><code>plotnine</code>: a good place to start</h2>
+<div id="edbb1339" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|6|7|8-9|10|11|12-16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> plotnine <span class="im">as</span> pn</span>
+<span id="cb1-2"><a href=""></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span></span>
+<span id="cb1-3"><a href=""></a>df <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a>my_plot <span class="op">=</span> (</span>
+<span id="cb1-6"><a href=""></a>  pn.ggplot(data<span class="op">=</span>df)<span class="op">+</span>                                <span class="co"># Data</span></span>
+<span id="cb1-7"><a href=""></a>  pn.aes(x<span class="op">=</span><span class="st">'height'</span>, y<span class="op">=</span><span class="st">'mass'</span>, color<span class="op">=</span><span class="st">'eye_color'</span>)<span class="op">+</span>   <span class="co"># Aesthetics</span></span>
+<span id="cb1-8"><a href=""></a>  pn.geom_point()<span class="op">+</span>                                   <span class="co"># Geometries</span></span>
+<span id="cb1-9"><a href=""></a>  pn.geom_smooth(method<span class="op">=</span><span class="st">'lm'</span>)<span class="op">+</span></span>
+<span id="cb1-10"><a href=""></a>  pn.facet_wrap(<span class="st">'gender'</span>)<span class="op">+</span>                           <span class="co"># Facets</span></span>
+<span id="cb1-11"><a href=""></a>  pn.scale_x_log()<span class="op">+</span>                                  <span class="co"># Coordinates </span></span>
+<span id="cb1-12"><a href=""></a>  pn.theme(text<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">10</span>))<span class="op">+</span>              <span class="co"># Theme</span></span>
+<span id="cb1-13"><a href=""></a>  pn.labs(</span>
+<span id="cb1-14"><a href=""></a>    x<span class="op">=</span><span class="st">'Height (cm)'</span>, y<span class="op">=</span><span class="st">'Mass (kg)'</span>, color<span class="op">=</span><span class="st">'Eye Color'</span>,</span>
+<span id="cb1-15"><a href=""></a>    title<span class="op">=</span><span class="st">'Star Wars Characters: Height vs Mass'</span></span>
+<span id="cb1-16"><a href=""></a>  )</span>
+<span id="cb1-17"><a href=""></a></span>
+<span id="cb1-18"><a href=""></a>)</span>
+<span id="cb1-19"><a href=""></a></span>
+<span id="cb1-20"><a href=""></a>my_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="practice-time" class="slide level2">
+<h2>Practice Time 💻</h2>
+<ol type="1">
+<li><p>Create the plot by adding progressively each code line to understand what happens</p></li>
+<li><p>Expand to other common geometries</p></li>
+<li><p>Improve theming</p></li>
+<li><p>Test other libraries</p></li>
+<li><p>🍪 / ☕️</p></li>
+</ol>
+</section>
+<section id="notable-packages" class="slide level2">
+<h2>Notable packages</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/logo/matplotlib.png" class="quarto-figure quarto-figure-center" height="100"> <img data-src="img/logo/seaborn.svg" class="quarto-figure quarto-figure-center" height="100"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/plotnine.png" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/altair.png" class="quarto-figure quarto-figure-center" height="100"></p>
+<figcaption>Vega-Altair</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/bokeh.png" class="quarto-figure quarto-figure-center" data-max-width="100px" width="100" height="29"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/holoviews.png" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/hvplot.png" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/plotly.svg" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-problem-is-choice" class="slide level2">
+<h2>The problem is Choice</h2>
+<p><strong>Question</strong>: which ones do you typically use, and most importantly, why ?</p>
+<div class="fragment">
+<p>Deciding factors are often:</p>
+<ul>
+<li><p>code readability</p></li>
+<li><p>ease of use</p></li>
+<li><p>support from the community</p></li>
+<li><p>code maturity</p></li>
+<li><p>active developer<strong>s</strong></p></li>
+<li><p>aesthetics and personal taste</p></li>
+<li><p>personal habit</p></li>
+</ul>
+</div>
+</section>
+<section id="comparing-syntax" class="slide level2 smaller">
+<h2>Comparing syntax</h2>
+<p>Choose one library amongst the following that you’re not super familiar with already: <code>seaborn</code>, <code>altair</code>, <code>plotly</code>, <code>bokeh</code>, … and recreate with this library <strong>two</strong> different visualizations we did using the starwars data.</p>
+<p>For the purpose of the exercise, I recommend you rely on the libraries online documentation and, if any trouble occurs, please rely on stackoverflow and co or myself. Let’s try to solve this on our own, without AI agent.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/scatterplot_meme.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
 </figure>
 </div>
 </section>
-<section id="starwars-dataset" class="slide level2 smaller">
-<h2><code>starwars</code> dataset</h2>
-<p>We will work on the <code>starwars</code> characters dataset, and make the sample plot with different libraries.</p>
-<style>
-div.cell[data-code-nextto-output="true"] > .sourceCode.cell-code {
-    float: left; 
-    width: 50%;
-}
-</style>
-<div id="9cb92b50" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>show/hide</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span></span>
-<span id="cb1-4"><a href=""></a></span>
-<span id="cb1-5"><a href=""></a>df <span class="op">=</span> (</span>
-<span id="cb1-6"><a href=""></a>  pd.read_csv(url)</span>
-<span id="cb1-7"><a href=""></a>  .drop(columns<span class="op">=</span>[<span class="st">'films'</span>, <span class="st">'vehicles'</span>, <span class="st">'starships'</span>])</span>
-<span id="cb1-8"><a href=""></a>  .dropna(subset<span class="op">=</span>[<span class="st">"height"</span>, <span class="st">"mass"</span>])</span>
-<span id="cb1-9"><a href=""></a>  .query(<span class="st">'mass&lt;1000'</span>) <span class="co"># excl. Jabba</span></span>
-<span id="cb1-10"><a href=""></a>)</span>
-<span id="cb1-11"><a href=""></a></span>
-<span id="cb1-12"><a href=""></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>df<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> rows in the dataset</span><span class="ch">\n</span><span class="ss">'</span>)</span>
-<span id="cb1-13"><a href=""></a><span class="bu">print</span>(<span class="st">'First character is:'</span>)</span>
-<span id="cb1-14"><a href=""></a><span class="bu">print</span>(df.iloc[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>58 rows in the dataset
-
-First character is:
-name          Luke Skywalker
-height                 172.0
-mass                    77.0
-hair_color             blond
-skin_color              fair
-eye_color               blue
-birth_year              19.0
-sex                     male
-gender             masculine
-homeworld           Tatooine
-species                Human
-Name: 0, dtype: object</code></pre>
-</div>
+<section id="plotnine-example" class="slide level2">
+<h2><code>plotnine</code> example</h2>
+<p><code>plotnine</code>, our reference is:</p>
+<div id="efbc89dd" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> plotnine <span class="im">as</span> pn</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a>my_plot <span class="op">=</span> (</span>
+<span id="cb2-4"><a href=""></a>  pn.ggplot(data<span class="op">=</span>df)<span class="op">+</span></span>
+<span id="cb2-5"><a href=""></a>  pn.aes(x<span class="op">=</span><span class="st">'height'</span>, y<span class="op">=</span><span class="st">'mass'</span>, color<span class="op">=</span><span class="st">'eye_color'</span>)<span class="op">+</span></span>
+<span id="cb2-6"><a href=""></a>  pn.geom_point()<span class="op">+</span></span>
+<span id="cb2-7"><a href=""></a>  pn.labs(</span>
+<span id="cb2-8"><a href=""></a>    x<span class="op">=</span><span class="st">'Height (cm)'</span>, y<span class="op">=</span><span class="st">'Mass (kg)'</span>, color<span class="op">=</span><span class="st">'Eye Color'</span>,</span>
+<span id="cb2-9"><a href=""></a>    title<span class="op">=</span><span class="st">'Star Wars Characters: Height vs Mass'</span></span>
+<span id="cb2-10"><a href=""></a>  )</span>
+<span id="cb2-11"><a href=""></a>)</span>
+<span id="cb2-12"><a href=""></a></span>
+<span id="cb2-13"><a href=""></a>my_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="matplotlib" class="slide level2">
-<h2><code>matplotlib</code></h2>
+<section id="matplotlib-example" class="slide level2">
+<h2><code>matplotlib</code> example</h2>
 <p>is the basic method for viz in python, can mix a lot of methods but it tends to be very verbose even for simple cases (see here for just adding a legend 🙈)</p>
-<div id="7056406d" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>show/hide</summary>
+<div id="190e7c12" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-2"><a href=""></a></span>
 <span id="cb3-3"><a href=""></a>plt.figure()</span>
@@ -547,23 +622,12 @@ Name: 0, dtype: object</code></pre>
 <span id="cb3-21"><a href=""></a>plt.legend(handles, eye_colors.cat.categories, title<span class="op">=</span><span class="st">"Eye Color"</span>)</span>
 <span id="cb3-22"><a href=""></a></span>
 <span id="cb3-23"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/cell-3-output-1.png" width="816" height="449"></p>
-</figure>
-</div>
-</div>
 </div>
 </section>
-<section id="plotly" class="slide level2">
-<h2><code>plotly</code></h2>
-<p><code>plotly</code> knows two variations: graph objects and express express is super easy to use, graph objects less but allows to go further in complexity of graphs</p>
-<p>the main advantage of plotly is how easy it is to interact with the scales of the graph, the groups and specific data points</p>
-<div id="f1e0fd43" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>show/hide</summary>
+<section id="plotly-example" class="slide level2">
+<h2><code>plotly</code> example</h2>
+<p>offers immediate interactivity features. Note that there is <code>plotly graph objects</code> and <code>plotly express</code>.</p>
+<div id="4e76d929" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
 <span id="cb4-2"><a href=""></a></span>
 <span id="cb4-3"><a href=""></a>fig <span class="op">=</span> px.scatter(</span>
@@ -579,244 +643,267 @@ Name: 0, dtype: object</code></pre>
 <span id="cb4-13"><a href=""></a>    title<span class="op">=</span><span class="st">"Star Wars Characters: Height vs Mass"</span></span>
 <span id="cb4-14"><a href=""></a>)</span>
 <span id="cb4-15"><a href=""></a></span>
-<span id="cb4-16"><a href=""></a>fig.update_traces(marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">10</span>, opacity<span class="op">=</span><span class="fl">0.8</span>))</span>
-<span id="cb4-17"><a href=""></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-        <script type="text/javascript">
-        window.PlotlyConfig = {MathJaxConfig: 'local'};
-        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-        </script>
-        <script type="module">import "https://cdn.plot.ly/plotly-3.3.0.min"</script>
-        
-</div>
-<div class="cell-output cell-output-display">
-<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.0.min.js" integrity="sha256-bO3dS6yCpk9aK4gUpNELtCiDeSYvGYnK7jFI58NQnHI=" crossorigin="anonymous"></script>                <div id="05307875-1955-44de-bb73-92aa185a3803" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("05307875-1955-44de-bb73-92aa185a3803")) {                    Plotly.newPlot(                        "05307875-1955-44de-bb73-92aa185a3803",                        [{"customdata":[["Luke Skywalker","Tatooine"],["Owen Lars","Tatooine"],["Beru Whitesun Lars","Tatooine"],["Anakin Skywalker","Tatooine"],["Chewbacca","Kashyyyk"],["Jek Tono Porkins","Bestine IV"],["Lobot","Bespin"],["Qui-Gon Jinn",null],["Adi Gallia","Coruscant"],["Luminara Unduli","Mirial"],["Barriss Offee","Mirial"],["Tarfful","Kashyyyk"]],"hovertemplate":"eye_color=blue\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"blue","marker":{"color":"#636efa","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"blue","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAACAZUAAAAAAAEBmQAAAAAAAoGRAAAAAAACAZ0AAAAAAAIBsQAAAAAAAgGZAAAAAAADgZUAAAAAAACBoQAAAAAAAAGdAAAAAAABAZUAAAAAAAMBkQAAAAAAAQG1A"},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAABAU0AAAAAAAABeQAAAAAAAwFJAAAAAAAAAVUAAAAAAAABcQAAAAAAAgFtAAAAAAADAU0AAAAAAAEBWQAAAAAAAAElAmpmZmZkZTEAAAAAAAABJQAAAAAAAAGFA"},"yaxis":"y","type":"scatter"},{"customdata":[["C-3PO","Tatooine"],["Darth Vader","Tatooine"],["Palpatine","Naboo"],["Darth Maul","Dathomir"],["Dud Bolt","Vulpter"],["Ki-Adi-Mundi","Cerea"],["Poggle the Lesser","Geonosis"],["Zam Wesell","Zolan"],["Dexter Jettster","Ojom"]],"hovertemplate":"eye_color=yellow\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"yellow","marker":{"color":"#EF553B","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"yellow","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAADgZEAAAAAAAEBpQAAAAAAAQGVAAAAAAADgZUAAAAAAAIBXQAAAAAAAwGhAAAAAAADgZkAAAAAAAABlQAAAAAAAwGhA"},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAADAUkAAAAAAAABhQAAAAAAAwFJAAAAAAAAAVEAAAAAAAIBGQAAAAAAAgFRAAAAAAAAAVEAAAAAAAIBLQAAAAAAAgFlA"},"yaxis":"y","type":"scatter"},{"customdata":[["R2-D2","Naboo"],["R5-D4","Tatooine"],["IG-88",null],["Bossk","Trandosha"],["Nute Gunray","Cato Neimoidia"]],"hovertemplate":"eye_color=red\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"red","marker":{"color":"#00cc96","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"red","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAAAAWEAAAAAAAEBYQAAAAAAAAGlAAAAAAADAZ0AAAAAAAOBnQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAQEAAAAAAAABAQAAAAAAAgGFAAAAAAABAXEAAAAAAAIBWQA=="},"yaxis":"y","type":"scatter"},{"customdata":[["Leia Organa","Alderaan"],["Biggs Darklighter","Tatooine"],["Han Solo","Corellia"],["Yoda",null],["Boba Fett","Kamino"],["Lando Calrissian","Socorro"],["Wicket Systri Warrick","Endor"],["Padm\u00e9 Amidala","Naboo"],["Mace Windu","Haruun Kal"],["Gregar Typho","Naboo"],["Dooku","Serenno"],["Jango Fett","Concord Dawn"],["Raymus Antilles","Alderaan"]],"hovertemplate":"eye_color=brown\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"brown","marker":{"color":"#ab63fa","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"brown","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAADAYkAAAAAAAOBmQAAAAAAAgGZAAAAAAACAUEAAAAAAAOBmQAAAAAAAIGZAAAAAAAAAVkAAAAAAACBnQAAAAAAAgGdAAAAAAAAgZ0AAAAAAACBoQAAAAAAA4GZAAAAAAACAZ0A="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAACASEAAAAAAAABVQAAAAAAAAFRAAAAAAAAAMUDNzMzMzIxTQAAAAAAAwFNAAAAAAAAANEAAAAAAAIBGQAAAAAAAAFVAAAAAAABAVUAAAAAAAABUQAAAAAAAwFNAAAAAAADAU0A="},"yaxis":"y","type":"scatter"},{"customdata":[["Obi-Wan Kenobi","Stewjon"]],"hovertemplate":"eye_color=blue-gray\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"blue-gray","marker":{"color":"#FFA15A","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"blue-gray","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAADAZkA="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAABAU0A="},"yaxis":"y","type":"scatter"},{"customdata":[["Greedo","Rodia"],["Nien Nunb","Sullust"],["Kit Fisto","Glee Anselm"],["Plo Koon","Dorin"],["Lama Su","Kamino"],["Shaak Ti","Shili"],["Tion Medon","Utapau"]],"hovertemplate":"eye_color=black\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"black","marker":{"color":"#19d3f3","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"black","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAACgZUAAAAAAAABkQAAAAAAAgGhAAAAAAACAZ0AAAAAAAKBsQAAAAAAAQGZAAAAAAADAaUA="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAACAUkAAAAAAAABRQAAAAAAAwFVAAAAAAAAAVEAAAAAAAABWQAAAAAAAgExAAAAAAAAAVEA="},"yaxis":"y","type":"scatter"},{"customdata":[["Wedge Antilles","Corellia"],["Ayla Secura","Ryloth"]],"hovertemplate":"eye_color=hazel\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"hazel","marker":{"color":"#FF6692","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"hazel","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAABAZUAAAAAAAEBmQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAABAU0AAAAAAAIBLQA=="},"yaxis":"y","type":"scatter"},{"customdata":[["Ackbar","Mon Cala"],["Jar Jar Binks","Naboo"],["Roos Tarpals","Naboo"],["Sebulba","Malastare"],["Ben Quadinaros","Tund"]],"hovertemplate":"eye_color=orange\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"orange","marker":{"color":"#B6E880","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"orange","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAACAZkAAAAAAAIBoQAAAAAAAAGxAAAAAAAAAXEAAAAAAAGBkQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAADAVEAAAAAAAIBQQAAAAAAAgFRAAAAAAAAAREAAAAAAAEBQQA=="},"yaxis":"y","type":"scatter"},{"customdata":[["Ratts Tyerel","Aleen Minor"],["Wat Tambor","Skako"]],"hovertemplate":"eye_color=unknown\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"unknown","marker":{"color":"#FF97FF","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"unknown","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAADAU0AAAAAAACBoQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAALkAAAAAAAABIQA=="},"yaxis":"y","type":"scatter"},{"customdata":[["Grievous","Kalee"]],"hovertemplate":"eye_color=green, yellow\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"green, yellow","marker":{"color":"#FECB52","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"green, yellow","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAAAAa0A="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAADgY0A="},"yaxis":"y","type":"scatter"},{"customdata":[["Sly Moore","Umbara"]],"hovertemplate":"eye_color=white\u003cbr\u003eheight=%{x:.0f}\u003cbr\u003emass=%{y}\u003cbr\u003ename=%{customdata[0]}\u003cbr\u003ehomeworld=%{customdata[1]}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"white","marker":{"color":"#636efa","symbol":"circle","opacity":0.8,"size":10},"mode":"markers","name":"white","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAABAZkA="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAASEA="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"height"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"mass"}},"legend":{"title":{"text":"eye_color"},"tracegroupgap":0},"title":{"text":"Star Wars Characters: Height vs Mass"}},                        {"responsive": true}                    ).then(function(){
-                            
-var gd = document.getElementById('05307875-1955-44de-bb73-92aa185a3803');
-var x = new MutationObserver(function (mutations, observer) {{
-        var display = window.getComputedStyle(gd).display;
-        if (!display || display === 'none') {{
-            console.log([gd, 'removed!']);
-            Plotly.purge(gd);
-            observer.disconnect();
-        }}
-}});
-
-// Listen for the removal of the full notebook cells
-var notebookContainer = gd.closest('#notebook-container');
-if (notebookContainer) {{
-    x.observe(notebookContainer, {childList: true});
-}}
-
-// Listen for the clearing of the current output cell
-var outputEl = gd.closest('.output');
-if (outputEl) {{
-    x.observe(outputEl, {childList: true});
-}}
-
-                        })                };            </script>        </div>
-</div>
+<span id="cb4-16"><a href=""></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="altair" class="slide level2">
-<h2><code>altair</code></h2>
-<p><code>altair</code> has an interesting style of variable declaration and produces very beautiful outputs</p>
-<div id="9329ccc0" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>show/hide</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a>chart <span class="op">=</span> alt.Chart(df).mark_circle().encode(</span>
-<span id="cb5-4"><a href=""></a>    x<span class="op">=</span>alt.X(<span class="st">"height"</span>, title<span class="op">=</span><span class="st">"Height (cm)"</span>),</span>
-<span id="cb5-5"><a href=""></a>    y<span class="op">=</span>alt.Y(<span class="st">"mass"</span>, title<span class="op">=</span><span class="st">"Mass (kg)"</span>),</span>
-<span id="cb5-6"><a href=""></a>    color<span class="op">=</span>alt.Color(<span class="st">"eye_color"</span>, title<span class="op">=</span><span class="st">"Eye Color"</span>),</span>
-<span id="cb5-7"><a href=""></a>    tooltip<span class="op">=</span>[<span class="st">"name"</span>, <span class="st">"species"</span>, <span class="st">"height"</span>, <span class="st">"mass"</span>, <span class="st">"eye_color"</span>]</span>
-<span id="cb5-8"><a href=""></a>).properties(title<span class="op">=</span><span class="st">"Star Wars Characters: Height vs Mass"</span>)</span>
-<span id="cb5-9"><a href=""></a></span>
-<span id="cb5-10"><a href=""></a>chart.interactive()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="4">
-
-<style>
-  #altair-viz-bad0b685f13f4b63b44fc606c606522e.vega-embed {
-    width: 100%;
-    display: flex;
-  }
-
-  #altair-viz-bad0b685f13f4b63b44fc606c606522e.vega-embed details,
-  #altair-viz-bad0b685f13f4b63b44fc606c606522e.vega-embed details summary {
-    position: relative;
-  }
-</style>
-<div id="altair-viz-bad0b685f13f4b63b44fc606c606522e"></div>
-<script type="text/javascript">
-  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
-  (function(spec, embedOpt){
-    let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-bad0b685f13f4b63b44fc606c606522e") {
-      outputDiv = document.getElementById("altair-viz-bad0b685f13f4b63b44fc606c606522e");
-    }
-
-    const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.20.1?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
-    };
-
-    function maybeLoadScript(lib, version) {
-      var key = `${lib.replace("-", "")}_version`;
-      return (VEGA_DEBUG[key] == version) ?
-        Promise.resolve(paths[lib]) :
-        new Promise(function(resolve, reject) {
-          var s = document.createElement('script');
-          document.getElementsByTagName("head")[0].appendChild(s);
-          s.async = true;
-          s.onload = () => {
-            VEGA_DEBUG[key] = version;
-            return resolve(paths[lib]);
-          };
-          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
-          s.src = paths[lib];
-        });
-    }
-
-    function showError(err) {
-      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
-      throw err;
-    }
-
-    function displayChart(vegaEmbed) {
-      vegaEmbed(outputDiv, spec, embedOpt)
-        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
-    }
-
-    if(typeof define === "function" && define.amd) {
-      requirejs.config({paths});
-      let deps = ["vega-embed"];
-      require(deps, displayChart, err => showError(`Error loading script: ${err.message}`));
-    } else {
-      maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "5.20.1"))
-        .then(() => maybeLoadScript("vega-embed", "6"))
-        .catch(showError)
-        .then(() => displayChart(vegaEmbed));
-    }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-b3125f1b8731660cf1672fafdc92d275"}, "mark": {"type": "circle"}, "encoding": {"color": {"field": "eye_color", "title": "Eye Color", "type": "nominal"}, "tooltip": [{"field": "name", "type": "nominal"}, {"field": "species", "type": "nominal"}, {"field": "height", "type": "quantitative"}, {"field": "mass", "type": "quantitative"}, {"field": "eye_color", "type": "nominal"}], "x": {"field": "height", "title": "Height (cm)", "type": "quantitative"}, "y": {"field": "mass", "title": "Mass (kg)", "type": "quantitative"}}, "params": [{"name": "param_1", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales"}], "title": "Star Wars Characters: Height vs Mass", "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-b3125f1b8731660cf1672fafdc92d275": [{"name": "Luke Skywalker", "height": 172.0, "mass": 77.0, "hair_color": "blond", "skin_color": "fair", "eye_color": "blue", "birth_year": 19.0, "sex": "male", "gender": "masculine", "homeworld": "Tatooine", "species": "Human"}, {"name": "C-3PO", "height": 167.0, "mass": 75.0, "hair_color": null, "skin_color": "gold", "eye_color": "yellow", "birth_year": 112.0, "sex": "none", "gender": "masculine", "homeworld": "Tatooine", "species": "Droid"}, {"name": "R2-D2", "height": 96.0, "mass": 32.0, "hair_color": null, "skin_color": "white, blue", "eye_color": "red", "birth_year": 33.0, "sex": "none", "gender": "masculine", "homeworld": "Naboo", "species": "Droid"}, {"name": "Darth Vader", "height": 202.0, "mass": 136.0, "hair_color": "none", "skin_color": "white", "eye_color": "yellow", "birth_year": 41.9, "sex": "male", "gender": "masculine", "homeworld": "Tatooine", "species": "Human"}, {"name": "Leia Organa", "height": 150.0, "mass": 49.0, "hair_color": "brown", "skin_color": "light", "eye_color": "brown", "birth_year": 19.0, "sex": "female", "gender": "feminine", "homeworld": "Alderaan", "species": "Human"}, {"name": "Owen Lars", "height": 178.0, "mass": 120.0, "hair_color": "brown, grey", "skin_color": "light", "eye_color": "blue", "birth_year": 52.0, "sex": "male", "gender": "masculine", "homeworld": "Tatooine", "species": "Human"}, {"name": "Beru Whitesun Lars", "height": 165.0, "mass": 75.0, "hair_color": "brown", "skin_color": "light", "eye_color": "blue", "birth_year": 47.0, "sex": "female", "gender": "feminine", "homeworld": "Tatooine", "species": "Human"}, {"name": "R5-D4", "height": 97.0, "mass": 32.0, "hair_color": null, "skin_color": "white, red", "eye_color": "red", "birth_year": null, "sex": "none", "gender": "masculine", "homeworld": "Tatooine", "species": "Droid"}, {"name": "Biggs Darklighter", "height": 183.0, "mass": 84.0, "hair_color": "black", "skin_color": "light", "eye_color": "brown", "birth_year": 24.0, "sex": "male", "gender": "masculine", "homeworld": "Tatooine", "species": "Human"}, {"name": "Obi-Wan Kenobi", "height": 182.0, "mass": 77.0, "hair_color": "auburn, white", "skin_color": "fair", "eye_color": "blue-gray", "birth_year": 57.0, "sex": "male", "gender": "masculine", "homeworld": "Stewjon", "species": "Human"}, {"name": "Anakin Skywalker", "height": 188.0, "mass": 84.0, "hair_color": "blond", "skin_color": "fair", "eye_color": "blue", "birth_year": 41.9, "sex": "male", "gender": "masculine", "homeworld": "Tatooine", "species": "Human"}, {"name": "Chewbacca", "height": 228.0, "mass": 112.0, "hair_color": "brown", "skin_color": "unknown", "eye_color": "blue", "birth_year": 200.0, "sex": "male", "gender": "masculine", "homeworld": "Kashyyyk", "species": "Wookiee"}, {"name": "Han Solo", "height": 180.0, "mass": 80.0, "hair_color": "brown", "skin_color": "fair", "eye_color": "brown", "birth_year": 29.0, "sex": "male", "gender": "masculine", "homeworld": "Corellia", "species": "Human"}, {"name": "Greedo", "height": 173.0, "mass": 74.0, "hair_color": null, "skin_color": "green", "eye_color": "black", "birth_year": 44.0, "sex": "male", "gender": "masculine", "homeworld": "Rodia", "species": "Rodian"}, {"name": "Wedge Antilles", "height": 170.0, "mass": 77.0, "hair_color": "brown", "skin_color": "fair", "eye_color": "hazel", "birth_year": 21.0, "sex": "male", "gender": "masculine", "homeworld": "Corellia", "species": "Human"}, {"name": "Jek Tono Porkins", "height": 180.0, "mass": 110.0, "hair_color": "brown", "skin_color": "fair", "eye_color": "blue", "birth_year": null, "sex": null, "gender": null, "homeworld": "Bestine IV", "species": null}, {"name": "Yoda", "height": 66.0, "mass": 17.0, "hair_color": "white", "skin_color": "green", "eye_color": "brown", "birth_year": 896.0, "sex": "male", "gender": "masculine", "homeworld": null, "species": "Yoda's species"}, {"name": "Palpatine", "height": 170.0, "mass": 75.0, "hair_color": "grey", "skin_color": "pale", "eye_color": "yellow", "birth_year": 82.0, "sex": "male", "gender": "masculine", "homeworld": "Naboo", "species": "Human"}, {"name": "Boba Fett", "height": 183.0, "mass": 78.2, "hair_color": "black", "skin_color": "fair", "eye_color": "brown", "birth_year": 31.5, "sex": "male", "gender": "masculine", "homeworld": "Kamino", "species": "Human"}, {"name": "IG-88", "height": 200.0, "mass": 140.0, "hair_color": "none", "skin_color": "metal", "eye_color": "red", "birth_year": 15.0, "sex": "none", "gender": "masculine", "homeworld": null, "species": "Droid"}, {"name": "Bossk", "height": 190.0, "mass": 113.0, "hair_color": "none", "skin_color": "green", "eye_color": "red", "birth_year": 53.0, "sex": "male", "gender": "masculine", "homeworld": "Trandosha", "species": "Trandoshan"}, {"name": "Lando Calrissian", "height": 177.0, "mass": 79.0, "hair_color": "black", "skin_color": "dark", "eye_color": "brown", "birth_year": 31.0, "sex": "male", "gender": "masculine", "homeworld": "Socorro", "species": "Human"}, {"name": "Lobot", "height": 175.0, "mass": 79.0, "hair_color": "none", "skin_color": "light", "eye_color": "blue", "birth_year": 37.0, "sex": "male", "gender": "masculine", "homeworld": "Bespin", "species": "Human"}, {"name": "Ackbar", "height": 180.0, "mass": 83.0, "hair_color": "none", "skin_color": "brown mottle", "eye_color": "orange", "birth_year": 41.0, "sex": "male", "gender": "masculine", "homeworld": "Mon Cala", "species": "Mon Calamari"}, {"name": "Wicket Systri Warrick", "height": 88.0, "mass": 20.0, "hair_color": "brown", "skin_color": "brown", "eye_color": "brown", "birth_year": 8.0, "sex": "male", "gender": "masculine", "homeworld": "Endor", "species": "Ewok"}, {"name": "Nien Nunb", "height": 160.0, "mass": 68.0, "hair_color": "none", "skin_color": "grey", "eye_color": "black", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Sullust", "species": "Sullustan"}, {"name": "Qui-Gon Jinn", "height": 193.0, "mass": 89.0, "hair_color": "brown", "skin_color": "fair", "eye_color": "blue", "birth_year": 92.0, "sex": "male", "gender": "masculine", "homeworld": null, "species": "Human"}, {"name": "Nute Gunray", "height": 191.0, "mass": 90.0, "hair_color": "none", "skin_color": "mottled green", "eye_color": "red", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Cato Neimoidia", "species": "Neimodian"}, {"name": "Padm\u00e9 Amidala", "height": 185.0, "mass": 45.0, "hair_color": "brown", "skin_color": "light", "eye_color": "brown", "birth_year": 46.0, "sex": "female", "gender": "feminine", "homeworld": "Naboo", "species": "Human"}, {"name": "Jar Jar Binks", "height": 196.0, "mass": 66.0, "hair_color": "none", "skin_color": "orange", "eye_color": "orange", "birth_year": 52.0, "sex": "male", "gender": "masculine", "homeworld": "Naboo", "species": "Gungan"}, {"name": "Roos Tarpals", "height": 224.0, "mass": 82.0, "hair_color": "none", "skin_color": "grey", "eye_color": "orange", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Naboo", "species": "Gungan"}, {"name": "Sebulba", "height": 112.0, "mass": 40.0, "hair_color": "none", "skin_color": "grey, red", "eye_color": "orange", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Malastare", "species": "Dug"}, {"name": "Darth Maul", "height": 175.0, "mass": 80.0, "hair_color": "none", "skin_color": "red", "eye_color": "yellow", "birth_year": 54.0, "sex": "male", "gender": "masculine", "homeworld": "Dathomir", "species": "Zabrak"}, {"name": "Ayla Secura", "height": 178.0, "mass": 55.0, "hair_color": "none", "skin_color": "blue", "eye_color": "hazel", "birth_year": 48.0, "sex": "female", "gender": "feminine", "homeworld": "Ryloth", "species": "Twi'lek"}, {"name": "Ratts Tyerel", "height": 79.0, "mass": 15.0, "hair_color": "none", "skin_color": "grey, blue", "eye_color": "unknown", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Aleen Minor", "species": "Aleena"}, {"name": "Dud Bolt", "height": 94.0, "mass": 45.0, "hair_color": "none", "skin_color": "blue, grey", "eye_color": "yellow", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Vulpter", "species": "Vulptereen"}, {"name": "Ben Quadinaros", "height": 163.0, "mass": 65.0, "hair_color": "none", "skin_color": "grey, green, yellow", "eye_color": "orange", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Tund", "species": "Toong"}, {"name": "Mace Windu", "height": 188.0, "mass": 84.0, "hair_color": "none", "skin_color": "dark", "eye_color": "brown", "birth_year": 72.0, "sex": "male", "gender": "masculine", "homeworld": "Haruun Kal", "species": "Human"}, {"name": "Ki-Adi-Mundi", "height": 198.0, "mass": 82.0, "hair_color": "white", "skin_color": "pale", "eye_color": "yellow", "birth_year": 92.0, "sex": "male", "gender": "masculine", "homeworld": "Cerea", "species": "Cerean"}, {"name": "Kit Fisto", "height": 196.0, "mass": 87.0, "hair_color": "none", "skin_color": "green", "eye_color": "black", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Glee Anselm", "species": "Nautolan"}, {"name": "Adi Gallia", "height": 184.0, "mass": 50.0, "hair_color": "none", "skin_color": "dark", "eye_color": "blue", "birth_year": null, "sex": "female", "gender": "feminine", "homeworld": "Coruscant", "species": "Tholothian"}, {"name": "Plo Koon", "height": 188.0, "mass": 80.0, "hair_color": "none", "skin_color": "orange", "eye_color": "black", "birth_year": 22.0, "sex": "male", "gender": "masculine", "homeworld": "Dorin", "species": "Kel Dor"}, {"name": "Gregar Typho", "height": 185.0, "mass": 85.0, "hair_color": "black", "skin_color": "dark", "eye_color": "brown", "birth_year": null, "sex": null, "gender": null, "homeworld": "Naboo", "species": null}, {"name": "Poggle the Lesser", "height": 183.0, "mass": 80.0, "hair_color": "none", "skin_color": "green", "eye_color": "yellow", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Geonosis", "species": "Geonosian"}, {"name": "Luminara Unduli", "height": 170.0, "mass": 56.2, "hair_color": "black", "skin_color": "yellow", "eye_color": "blue", "birth_year": 58.0, "sex": "female", "gender": "feminine", "homeworld": "Mirial", "species": "Mirialan"}, {"name": "Barriss Offee", "height": 166.0, "mass": 50.0, "hair_color": "black", "skin_color": "yellow", "eye_color": "blue", "birth_year": 40.0, "sex": "female", "gender": "feminine", "homeworld": "Mirial", "species": "Mirialan"}, {"name": "Dooku", "height": 193.0, "mass": 80.0, "hair_color": "white", "skin_color": "fair", "eye_color": "brown", "birth_year": 102.0, "sex": "male", "gender": "masculine", "homeworld": "Serenno", "species": "Human"}, {"name": "Jango Fett", "height": 183.0, "mass": 79.0, "hair_color": "black", "skin_color": "tan", "eye_color": "brown", "birth_year": 66.0, "sex": "male", "gender": "masculine", "homeworld": "Concord Dawn", "species": "Human"}, {"name": "Zam Wesell", "height": 168.0, "mass": 55.0, "hair_color": "blonde", "skin_color": "fair, green, yellow", "eye_color": "yellow", "birth_year": null, "sex": "female", "gender": "feminine", "homeworld": "Zolan", "species": "Clawdite"}, {"name": "Dexter Jettster", "height": 198.0, "mass": 102.0, "hair_color": "none", "skin_color": "brown", "eye_color": "yellow", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Ojom", "species": "Besalisk"}, {"name": "Lama Su", "height": 229.0, "mass": 88.0, "hair_color": "none", "skin_color": "grey", "eye_color": "black", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Kamino", "species": "Kaminoan"}, {"name": "Wat Tambor", "height": 193.0, "mass": 48.0, "hair_color": "none", "skin_color": "green, grey", "eye_color": "unknown", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Skako", "species": "Skakoan"}, {"name": "Shaak Ti", "height": 178.0, "mass": 57.0, "hair_color": "none", "skin_color": "red, blue, white", "eye_color": "black", "birth_year": null, "sex": "female", "gender": "feminine", "homeworld": "Shili", "species": "Togruta"}, {"name": "Grievous", "height": 216.0, "mass": 159.0, "hair_color": "none", "skin_color": "brown, white", "eye_color": "green, yellow", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Kalee", "species": "Kaleesh"}, {"name": "Tarfful", "height": 234.0, "mass": 136.0, "hair_color": "brown", "skin_color": "brown", "eye_color": "blue", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Kashyyyk", "species": "Wookiee"}, {"name": "Raymus Antilles", "height": 188.0, "mass": 79.0, "hair_color": "brown", "skin_color": "light", "eye_color": "brown", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Alderaan", "species": "Human"}, {"name": "Sly Moore", "height": 178.0, "mass": 48.0, "hair_color": "none", "skin_color": "pale", "eye_color": "white", "birth_year": null, "sex": null, "gender": null, "homeworld": "Umbara", "species": null}, {"name": "Tion Medon", "height": 206.0, "mass": 80.0, "hair_color": "none", "skin_color": "grey", "eye_color": "black", "birth_year": null, "sex": "male", "gender": "masculine", "homeworld": "Utapau", "species": "Pau'an"}]}}, {"mode": "vega-lite"});
-</script>
-</div>
+<section id="seaborn-example" class="slide level2">
+<h2><code>seaborn</code> example</h2>
+<p>is build on top of matplotlib and produces very beautiful outputs</p>
+<div id="ae8f862e" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb5-2"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb5-5"><a href=""></a>sns.scatterplot(</span>
+<span id="cb5-6"><a href=""></a>    data<span class="op">=</span>df,</span>
+<span id="cb5-7"><a href=""></a>    x<span class="op">=</span><span class="st">"mass"</span>,</span>
+<span id="cb5-8"><a href=""></a>    y<span class="op">=</span><span class="st">"height"</span>,</span>
+<span id="cb5-9"><a href=""></a>    hue<span class="op">=</span><span class="st">"eye_color"</span></span>
+<span id="cb5-10"><a href=""></a>)</span>
+<span id="cb5-11"><a href=""></a></span>
+<span id="cb5-12"><a href=""></a>plt.title(<span class="st">"Star Wars Characters: Height vs Mass"</span>)</span>
+<span id="cb5-13"><a href=""></a>plt.tight_layout()</span>
+<span id="cb5-14"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="plotnine" class="slide level2">
-<h2><code>plotnine</code></h2>
-<p><code>plotnine</code> follows the grammar of graphics style:</p>
-<div id="bc43b4ba" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>show/hide</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="im">import</span> plotnine <span class="im">as</span> pn</span>
+<section id="altair-example" class="slide level2">
+<h2><code>altair</code> example</h2>
+<p>has an interesting style of variable declaration and produces very beautiful outputs</p>
+<div id="175b3f6e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a>my_plot <span class="op">=</span> (</span>
-<span id="cb6-4"><a href=""></a>  pn.ggplot(data<span class="op">=</span>df)<span class="op">+</span></span>
-<span id="cb6-5"><a href=""></a>  pn.aes(x<span class="op">=</span><span class="st">'height'</span>, y<span class="op">=</span><span class="st">'mass'</span>, color<span class="op">=</span><span class="st">'eye_color'</span>)<span class="op">+</span></span>
-<span id="cb6-6"><a href=""></a>  pn.geom_point()<span class="op">+</span></span>
-<span id="cb6-7"><a href=""></a>  pn.labs(</span>
-<span id="cb6-8"><a href=""></a>    x<span class="op">=</span><span class="st">'Height (cm)'</span>, y<span class="op">=</span><span class="st">'Mass (kg)'</span>, color<span class="op">=</span><span class="st">'Eye Color'</span>,</span>
-<span id="cb6-9"><a href=""></a>    title<span class="op">=</span><span class="st">'Star Wars Characters: Height vs Mass'</span></span>
-<span id="cb6-10"><a href=""></a>  )</span>
-<span id="cb6-11"><a href=""></a>)</span>
-<span id="cb6-12"><a href=""></a></span>
-<span id="cb6-13"><a href=""></a>my_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<span id="cb6-3"><a href=""></a>chart <span class="op">=</span> alt.Chart(df).mark_circle().encode(</span>
+<span id="cb6-4"><a href=""></a>    x<span class="op">=</span>alt.X(<span class="st">"height"</span>, title<span class="op">=</span><span class="st">"Height (cm)"</span>),</span>
+<span id="cb6-5"><a href=""></a>    y<span class="op">=</span>alt.Y(<span class="st">"mass"</span>, title<span class="op">=</span><span class="st">"Mass (kg)"</span>),</span>
+<span id="cb6-6"><a href=""></a>    color<span class="op">=</span>alt.Color(<span class="st">"eye_color"</span>, title<span class="op">=</span><span class="st">"Eye Color"</span>),</span>
+<span id="cb6-7"><a href=""></a>    tooltip<span class="op">=</span>[<span class="st">"name"</span>, <span class="st">"species"</span>, <span class="st">"height"</span>, <span class="st">"mass"</span>, <span class="st">"eye_color"</span>]</span>
+<span id="cb6-8"><a href=""></a>).properties(title<span class="op">=</span><span class="st">"Star Wars Characters: Height vs Mass"</span>)</span>
+<span id="cb6-9"><a href=""></a></span>
+<span id="cb6-10"><a href=""></a>chart.interactive()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="specialized-packages" class="slide level2">
+<h2>Specialized packages</h2>
+<p>For cartography: <img data-src="img/logo/folium.png" class="quarto-figure quarto-figure-center" height="100" alt="Folium"> and <img data-src="img/logo/geoviews.png" class="quarto-figure quarto-figure-center" height="100" alt="Geoviews"></p>
+<p>For network representation: <code>plotly</code> is actually quite good! <code>pyvis</code> is also very nice but no longer maintained following 2022.</p>
+<div class="{callout}">
+<p>Some libraries sometimes hide a lot of treasures, you should spend a lot of time in their docs &amp; galleries!</p>
+</div>
+<div class="fragment">
+<p><strong>Question</strong>: is there another type of plot you have in mind we might not have covered ?</p>
+</div>
+</section></section>
+<section>
+<section id="dashboards" class="title-slide slide level1 center">
+<h1>Dashboards</h1>
+
+</section>
+<section id="code-structure-for-data-apps" class="slide level2">
+<h2>Code structure for data apps</h2>
+<p>Most libraries help you code in python as wrapper for html, css and JS code. As such, you have essentially the following five code sections to handle:</p>
 <div>
+<ol type="1">
+<li class="fragment"><p><strong>Inputs</strong> come from the user e.g.&nbsp;data, filter selection, action request</p></li>
+<li class="fragment"><p><strong>Outputs</strong> are expected to be updated with the provided input e.g.&nbsp;a table is displayed for a given input filter, a graph generated for variables specified in input</p></li>
+<li class="fragment"><p><strong>Reactivity</strong> is the way of connecting inputs to outputs i.e.&nbsp;making sure that an when an input is changed the proper output is modified</p></li>
+<li class="fragment"><p><strong>Layout</strong> is how every element is organized on the app e.g.&nbsp;tabs, menus, column pagination</p></li>
+<li class="fragment"><p><strong>Style</strong> is how every element actually looks when it is displayed (pure CSS behind it)</p></li>
+</ol>
+</div>
+</section>
+<section id="general-development-process" class="slide level2">
+<h2>General Development process</h2>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/cell-6-output-1.png" width="960" height="480"></p>
+<p><img data-src="img/iterations.png" class="quarto-figure quarto-figure-center" height="600"></p>
+</figure>
+</div>
+</section>
+<section id="shiny-a-reliable-start-base" class="slide level2">
+<h2><code>shiny</code>: a reliable start base</h2>
+<div id="0483035b" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|8-14|16-24|10-12,22|13,18-24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co"># in terminal: shiny run --reload basic-app-example-shiny.py</span></span>
+<span id="cb7-2"><a href=""></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
+<span id="cb7-3"><a href=""></a><span class="im">import</span> plotnine <span class="im">as</span> pn</span>
+<span id="cb7-4"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span>)</span>
+<span id="cb7-7"><a href=""></a></span>
+<span id="cb7-8"><a href=""></a><span class="co">## user interface (UI) definition</span></span>
+<span id="cb7-9"><a href=""></a>app_ui <span class="op">=</span> ui.page_fixed(                               <span class="co"># HTML/CSS/JS content</span></span>
+<span id="cb7-10"><a href=""></a>    ui.input_select(                                  <span class="co"># UI Input Element</span></span>
+<span id="cb7-11"><a href=""></a>        <span class="bu">id</span><span class="op">=</span><span class="st">"var"</span>, label<span class="op">=</span><span class="st">"Select variable"</span>, choices<span class="op">=</span>[<span class="st">"height"</span>, <span class="st">"mass"</span>]</span>
+<span id="cb7-12"><a href=""></a>    ),</span>
+<span id="cb7-13"><a href=""></a>    ui.output_plot(<span class="st">"hist"</span>)                            <span class="co"># UI Output Element</span></span>
+<span id="cb7-14"><a href=""></a>)</span>
+<span id="cb7-15"><a href=""></a></span>
+<span id="cb7-16"><a href=""></a><span class="co">## server function provides access to client-side input values</span></span>
+<span id="cb7-17"><a href=""></a><span class="kw">def</span> server(<span class="bu">input</span>):                          <span class="co"># python function</span></span>
+<span id="cb7-18"><a href=""></a>    <span class="at">@render.plot</span>                            <span class="co"># indicate reactivity + output type</span></span>
+<span id="cb7-19"><a href=""></a>    <span class="kw">def</span> hist():</span>
+<span id="cb7-20"><a href=""></a>        <span class="cf">return</span> (</span>
+<span id="cb7-21"><a href=""></a>          pn.ggplot(data<span class="op">=</span>df)<span class="op">+</span></span>
+<span id="cb7-22"><a href=""></a>          pn.aes(x<span class="op">=</span><span class="bu">input</span>.var())<span class="op">+</span> <span class="co"># accessing input.var() value</span></span>
+<span id="cb7-23"><a href=""></a>          pn.geom_histogram()</span>
+<span id="cb7-24"><a href=""></a>        )</span>
+<span id="cb7-25"><a href=""></a></span>
+<span id="cb7-26"><a href=""></a>app <span class="op">=</span> App(app_ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="practice-time-1" class="slide level2">
+<h2>Practice Time 💻</h2>
+<ol type="1">
+<li><p>Run the app locally</p></li>
+<li><p>Add two inputs</p></li>
+<li><p>Add three outputs</p></li>
+<li><p>Improve layout / presentation</p></li>
+<li><p>🍪 / ☕️</p></li>
+</ol>
+</section>
+<section id="quick-tour-of-other-approaches" class="slide level2">
+<h2>Quick tour of other approaches</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/dash.png" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/panel.png" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/streamlit.png" class="quarto-figure quarto-figure-center" width="154"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/taipy.png" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/gradio.svg" class="quarto-figure quarto-figure-center" height="100"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/logo/voila.svg" class="quarto-figure quarto-figure-center" width="147"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="transcription-table" class="slide level2">
-<h2>Transcription table</h2>
-<p>There are a lot of common functionalities,</p>
-<table>
-<caption>Relatively equivalent methods from each libraries</caption>
-<thead>
-<tr class="header">
-<th><code>matplotlib</code></th>
-<th><code>plotly express</code></th>
-<th><code>altair</code></th>
-<th><code>plotnine</code></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>.scatter</td>
-<td>.scatter</td>
-<td>.mark_point</td>
-<td>geom_point</td>
-</tr>
-<tr class="even">
-<td>.plot</td>
-<td>.line</td>
-<td>.mark_line</td>
-<td>geom_line</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>.</td>
-<td>.mark_rect</td>
-<td>geom_rect</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>.[h|v]line</td>
-<td>.mark_rule</td>
-<td>geom_[h|v]line</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>.scatter</td>
-<td>.mark_text</td>
-<td>geom_text</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>.mark_tick</td>
-<td>geom_rug</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>.area</td>
-<td>.mark_area</td>
-<td>geom_area</td>
-</tr>
-</tbody>
-</table>
-<p><strong>but</strong> some libraries require more work than others depending on the usecase.</p>
+<section id="dash-example" class="slide level2">
+<h2><code>Dash</code> example</h2>
+<div id="d84c41af" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers=""><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="co"># in terminal: python basic-app-example-dash.py</span></span>
+<span id="cb8-2"><a href=""></a><span class="im">import</span> dash</span>
+<span id="cb8-3"><a href=""></a><span class="im">from</span> dash <span class="im">import</span> dcc, html, Input, Output</span>
+<span id="cb8-4"><a href=""></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb8-5"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-6"><a href=""></a></span>
+<span id="cb8-7"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span>)</span>
+<span id="cb8-8"><a href=""></a></span>
+<span id="cb8-9"><a href=""></a>app <span class="op">=</span> dash.Dash(<span class="va">__name__</span>)</span>
+<span id="cb8-10"><a href=""></a></span>
+<span id="cb8-11"><a href=""></a>app.layout <span class="op">=</span> html.Div([</span>
+<span id="cb8-12"><a href=""></a>    dcc.Dropdown(<span class="bu">id</span><span class="op">=</span><span class="st">"var"</span>, options<span class="op">=</span>[<span class="st">"mass"</span>, <span class="st">"height"</span>],       <span class="co"># UI Input Element</span></span>
+<span id="cb8-13"><a href=""></a>      value<span class="op">=</span><span class="st">"mass"</span>, clearable<span class="op">=</span><span class="va">False</span>),                        </span>
+<span id="cb8-14"><a href=""></a>    dcc.Graph(<span class="bu">id</span><span class="op">=</span><span class="st">"hist"</span>)                                     <span class="co"># UI Output Element</span></span>
+<span id="cb8-15"><a href=""></a>])</span>
+<span id="cb8-16"><a href=""></a></span>
+<span id="cb8-17"><a href=""></a><span class="at">@app.callback</span>(                       <span class="co"># callback: update the var selected changes</span></span>
+<span id="cb8-18"><a href=""></a>    Output(<span class="st">"hist"</span>, <span class="st">"figure"</span>),</span>
+<span id="cb8-19"><a href=""></a>    Input(<span class="st">"var"</span>, <span class="st">"value"</span>)</span>
+<span id="cb8-20"><a href=""></a>)</span>
+<span id="cb8-21"><a href=""></a><span class="kw">def</span> update_hist(selected_var):</span>
+<span id="cb8-22"><a href=""></a>    <span class="cf">return</span> px.histogram(df, x<span class="op">=</span>selected_var, title<span class="op">=</span><span class="ss">f"Histogram of </span><span class="sc">{</span>selected_var<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-23"><a href=""></a></span>
+<span id="cb8-24"><a href=""></a>app.run(debug<span class="op">=</span><span class="va">True</span>, use_reloader<span class="op">=</span><span class="va">False</span>) <span class="co"># debugger is super useful!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="exo-1-violin-plots" class="slide level2">
-<h2>Exo 1: violin plots</h2>
-<p>Choose one quanti and one quali variable in the dataset. Do a violin plot using <code>plotnine</code> and again using <code>altair</code>.</p>
-<div title="No AI Agents please">
-<div class="callout callout-warning no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>No AI Agents please</strong></p>
+<section id="panel-example" class="slide level2">
+<h2><code>Panel</code> example</h2>
+<div id="0092fbf7" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># panel serve basic-app-example-panel.py --dev</span></span>
+<span id="cb9-2"><a href=""></a><span class="im">import</span> panel <span class="im">as</span> pan</span>
+<span id="cb9-3"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-4"><a href=""></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb9-5"><a href=""></a>pan.extension(<span class="st">'plotly'</span>)</span>
+<span id="cb9-6"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span>)</span>
+<span id="cb9-7"><a href=""></a></span>
+<span id="cb9-8"><a href=""></a>var <span class="op">=</span> pan.widgets.Select(                                     <span class="co"># UI Input element</span></span>
+<span id="cb9-9"><a href=""></a>    name<span class="op">=</span><span class="st">"Select variable"</span>, options<span class="op">=</span>[<span class="st">"mass"</span>, <span class="st">"height"</span>], value<span class="op">=</span><span class="st">"mass"</span></span>
+<span id="cb9-10"><a href=""></a>)</span>
+<span id="cb9-11"><a href=""></a></span>
+<span id="cb9-12"><a href=""></a><span class="kw">def</span> make_plot(selected_var):                  <span class="co"># python function to update output</span></span>
+<span id="cb9-13"><a href=""></a>    <span class="cf">return</span> px.histogram( </span>
+<span id="cb9-14"><a href=""></a>      df, x<span class="op">=</span>selected_var, title<span class="op">=</span><span class="ss">f"Histogram of </span><span class="sc">{</span>selected_var<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb9-15"><a href=""></a>    )</span>
+<span id="cb9-16"><a href=""></a></span>
+<span id="cb9-17"><a href=""></a>interactive_plot <span class="op">=</span> pan.bind(               <span class="co"># binding output function to an input</span></span>
+<span id="cb9-18"><a href=""></a>  make_plot, selected_var<span class="op">=</span>var</span>
+<span id="cb9-19"><a href=""></a>)</span>
+<span id="cb9-20"><a href=""></a></span>
+<span id="cb9-21"><a href=""></a>app <span class="op">=</span> pan.Column(                       <span class="co"># Layout</span></span>
+<span id="cb9-22"><a href=""></a>    var,                                <span class="co"># Input</span></span>
+<span id="cb9-23"><a href=""></a>    pan.pane.Plotly(interactive_plot)   <span class="co"># Output</span></span>
+<span id="cb9-24"><a href=""></a>)</span>
+<span id="cb9-25"><a href=""></a></span>
+<span id="cb9-26"><a href=""></a>app.servable()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-content">
-<p>The libraries documentations and stackoverflow should be enough.</p>
+</section>
+<section id="streamlit-example" class="slide level2">
+<h2><code>Streamlit</code> example</h2>
+<div id="f9660997" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co"># in terminal:  streamlit run basic-app-example-streamlit.py</span></span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
+<span id="cb10-4"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-5"><a href=""></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb10-6"><a href=""></a></span>
+<span id="cb10-7"><a href=""></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"</span>)</span>
+<span id="cb10-8"><a href=""></a></span>
+<span id="cb10-9"><a href=""></a>var <span class="op">=</span> st.selectbox(                                 <span class="co"># UI Input</span></span>
+<span id="cb10-10"><a href=""></a>    <span class="st">"Select variable:"</span>,</span>
+<span id="cb10-11"><a href=""></a>    [<span class="st">"mass"</span>, <span class="st">"height"</span>],</span>
+<span id="cb10-12"><a href=""></a>    index<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb10-13"><a href=""></a>)</span>
+<span id="cb10-14"><a href=""></a></span>
+<span id="cb10-15"><a href=""></a>fig <span class="op">=</span> px.histogram(                                 <span class="co"># Output computation </span></span>
+<span id="cb10-16"><a href=""></a>    df,</span>
+<span id="cb10-17"><a href=""></a>    x<span class="op">=</span>var,</span>
+<span id="cb10-18"><a href=""></a>    title<span class="op">=</span><span class="ss">f"Histogram of </span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb10-19"><a href=""></a>)</span>
+<span id="cb10-20"><a href=""></a></span>
+<span id="cb10-21"><a href=""></a>st.plotly_chart(fig, use_container_width<span class="op">=</span><span class="va">True</span>)      <span class="co"># UI Output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="going-further" class="slide level2 smaller">
+<h2>Going further</h2>
+<p><strong>Code organization</strong>: as I’m sure you’ve noticed, it can get messy very quickly when programming dashboards. Common sense prevails: add comments, clear names, refactor in functions or classes and move code outside.</p>
+<div class="fragment">
+<p><strong>Deployment</strong>: using your app locally for individual usage or POCs is fine, but the ultimate goal is to make it available to internal and external users. The most common approach is to package your code (common approach is to create a Docker image) and make it run on servers either locally or on a cloud-based service. Here’s a non-exhaustive list of hosting services: AWS EC2, Hugging Face, Azure, GCP shinyapps.io, Plotly Cloud, Heroku, see <a href="https://panel.holoviz.org/how_to/deployment/index.html">more</a>. If you have a Data Engineer friend, now’s the time to call them.</p>
 </div>
-</div>
+<div class="fragment">
+<p><strong>What it’s not</strong>: those libraries were intended to facilitate any Data Scientist’s life to be able to show and deploy analyses, statistics and models, by having to not care about HTML, CSS and Javascript. Although you could make a chess game using those libraries, that would be a strange technical choice. If you want to create a static website with no ties to data, again very strange. If you want to make a full-on website, then it’s just not the right tool.</p>
+<!-- {{< include _0.qmd >}} -->
+<!-- {{< include _1.qmd >}} -->
 </div>
 </section></section>
-<section id="dashboard" class="title-slide slide level1 center">
-<h1>Dashboard</h1>
-<p>also a lot of diversity DASH Shiny Streamlit Panel Taipy Gradio</p>
+<section id="resources" class="title-slide slide level1 center">
+<h1>Resources</h1>
+<p>obliviously not exhaustive 😉</p>
+<p><a href="https://shiny.posit.co/py/api/core/"><code>shiny</code> API</a></p>
+<p><a href="https://panel.holoviz.org/index.html"><code>panel</code> docs</a></p>
+<p><a href="https://plotly.com/python/"><code>plotly</code> docs</a></p>
+<p><a href="https://github.com/rstudio/cheatsheets/blob/main/plotnine.pdf"><code>plotnine</code> cheatsheet</a></p>
+<p><a href="https://altair-viz.github.io/"><code>altair</code> docs</a></p>
 <div class="quarto-auto-generated-content">
 <p><img src="img/logo/cepe.png" class="slide-logo"></p>
 <div class="footer footer-default">

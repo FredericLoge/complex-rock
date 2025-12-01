@@ -1,0 +1,254 @@
+# Graphics
+
+## Grammar of Graphics
+
+:::: {.columns}
+
+:::{.column width="50%"}
+Grammar of graphics following Hadley Wickham, Chief Scientist @ [posit](https://posit.co/):
+
+1.  Data
+
+2.  Aesthetics
+
+3.  Geometries
+
+4.  Facets
+
+5.  Statistics
+
+6.  Coordinates
+
+7.  Theme
+:::
+
+::: {.column width="50%"}
+![[Grammar of graphics](https://www.nzdr.ru/data/media/biblio/kolxoz/Cs/CsCg/Wilkinson%20L.%20The%20grammar%20of%20graphics%20(2ed.,%20Springer,%202005)(ISBN%200387245448)(O)(693s)_CsCg_.pdf)](img/gog.jpg){width=50%}
+:::
+
+::::
+
+## `plotnine`: a good place to start
+
+```{python}
+#| code-line-numbers: "|6|7|8-9|10|11|12-16"
+#| 
+import plotnine as pn
+url = "https://raw.githubusercontent.com/tidyverse/dplyr/master/data-raw/starwars.csv"
+df = pd.read_csv(url)
+
+my_plot = (
+  pn.ggplot(data=df)+                                # Data
+  pn.aes(x='height', y='mass', color='eye_color')+   # Aesthetics
+  pn.geom_point()+                                   # Geometries
+  pn.geom_smooth(method='lm')+
+  pn.facet_wrap('gender')+                           # Facets
+  pn.scale_x_log()+                                  # Coordinates 
+  pn.theme(text=element_text(size=10))+              # Theme
+  pn.labs(
+    x='Height (cm)', y='Mass (kg)', color='Eye Color',
+    title='Star Wars Characters: Height vs Mass'
+  )
+
+)
+
+my_plot
+```
+
+
+## Practice Time 💻 
+
+1. Create the plot by adding progressively each code line to understand what happens
+
+2. Expand to other common geometries
+
+3. Improve theming
+
+4. Test other libraries
+
+5. 🍪 / ☕️
+
+
+## Notable packages
+
+::::{.columns}
+:::{.column width=50%}
+![](img/logo/matplotlib.png){height="100px" fig-align="center"}
+![](img/logo/seaborn.svg){height="100px" fig-align="center"} 
+
+![](img/logo/plotnine.png){height="100px" fig-align="center"} 
+
+![Vega-Altair](img/logo/altair.png){height="100px" fig-align="center"}
+:::
+:::{.column width=50%}
+![](img/logo/bokeh.png){max-width="100px" fig-align="center" width="100" height="29"}
+
+![](img/logo/holoviews.png){height="100px" fig-align="center"}
+
+![](img/logo/hvplot.png){height="100px" fig-align="center"}
+
+![](img/logo/plotly.svg){height="100px" fig-align="center"}
+:::
+::::
+
+## The problem is Choice
+
+**Question**: which ones do you typically use, and most importantly, why ?
+
+. . .
+
+Deciding factors are often:
+
+- code readability
+
+- ease of use
+
+- support from the community
+
+- code maturity
+
+- active developer**s**
+
+- aesthetics and personal taste
+
+- personal habit
+
+
+## Comparing syntax{.smaller}
+
+Choose one library amongst the following that you're not super familiar with already: `seaborn`, `altair`, `plotly`, `bokeh`, ... and recreate with this library **two** different visualizations we did using the starwars data.
+
+For the purpose of the exercise, I recommend you rely on the libraries online documentation and, if any trouble occurs, please rely on stackoverflow and co or myself. Let's try to solve this on our own, without AI agent.
+
+![](img/scatterplot_meme.jpg){width="40%" fig-align="center"}
+
+
+## `plotnine` example
+
+`plotnine`, our reference is:
+
+```{python}
+import plotnine as pn
+
+my_plot = (
+  pn.ggplot(data=df)+
+  pn.aes(x='height', y='mass', color='eye_color')+
+  pn.geom_point()+
+  pn.labs(
+    x='Height (cm)', y='Mass (kg)', color='Eye Color',
+    title='Star Wars Characters: Height vs Mass'
+  )
+)
+
+my_plot
+```
+
+## `matplotlib` example
+
+is the basic method for viz in python, can mix a lot of methods but it tends to be very verbose even for simple cases (see here for just adding a legend 🙈)
+
+```{python}
+import matplotlib.pyplot as plt
+
+plt.figure()
+scatter = plt.scatter(
+    df["height"],
+    df["mass"],
+    c=pd.Categorical(df["eye_color"]).codes,  # convert category → numeric colors
+    cmap="tab10",
+)
+
+plt.xlabel("Height (cm)")
+plt.ylabel("Mass (kg)")
+plt.title("Star Wars Characters: Height vs Mass")
+
+# legend
+eye_colors = df["eye_color"].astype("category")
+handles = [
+    plt.Line2D([], [], marker="o", linestyle="", color=scatter.cmap(scatter.norm(code)))
+    for code in range(len(eye_colors.cat.categories))
+]
+plt.legend(handles, eye_colors.cat.categories, title="Eye Color")
+
+plt.show()
+```
+
+## `plotly` example
+
+offers immediate interactivity features. Note that there is `plotly graph objects` and `plotly express`.
+
+```{python}
+import plotly.express as px
+
+fig = px.scatter(
+    df,
+    x="height",
+    y="mass",
+    color="eye_color",  
+    hover_data={
+        "name": True, # adding name
+        "homeworld": True, # adding home world
+        "height": ":.0f", # formatting height
+    },
+    title="Star Wars Characters: Height vs Mass"
+)
+
+fig.show()
+```
+
+## `seaborn` example
+
+is build on top of matplotlib and produces very beautiful outputs
+
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(6, 4))
+sns.scatterplot(
+    data=df,
+    x="mass",
+    y="height",
+    hue="eye_color"
+)
+
+plt.title("Star Wars Characters: Height vs Mass")
+plt.tight_layout()
+plt.show()
+```
+
+## `altair` example
+
+has an interesting style of variable declaration and produces very beautiful outputs
+
+```{python}
+import altair as alt
+
+chart = alt.Chart(df).mark_circle().encode(
+    x=alt.X("height", title="Height (cm)"),
+    y=alt.Y("mass", title="Mass (kg)"),
+    color=alt.Color("eye_color", title="Eye Color"),
+    tooltip=["name", "species", "height", "mass", "eye_color"]
+).properties(title="Star Wars Characters: Height vs Mass")
+
+chart.interactive()
+```
+
+## Specialized packages
+
+For cartography: ![Folium](img/logo/folium.png){height="100px" fig-align="center"}
+ and ![Geoviews](img/logo/geoviews.png){height="100px" fig-align="center"}
+ 
+For network representation: `plotly` is actually quite good! `pyvis` is also very nice but no longer maintained following 2022. 
+
+:::{callout}
+Some libraries sometimes hide a lot of treasures, you should spend a lot of time in their docs & galleries!
+:::
+
+. . .
+
+**Question**: is there another type of plot you have in mind we might not have covered ?
+
+. . .
+
+

@@ -14,5 +14,5 @@ Be aware that the chosen versions have their importance as some packages tend to
 
 # Course content
 
-Slides can be found in folder `slides`, notebooks in `scripts` and regular python files in `src`.
+Slides can be found in folder `slides`, notebooks and python scripts in `scripts` and dashboard in `apps`.
 
