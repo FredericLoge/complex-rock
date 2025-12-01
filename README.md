@@ -16,3 +16,4 @@ Be aware that the chosen versions have their importance as some packages tend to
 
 Slides can be found in folder `slides`, notebooks and python scripts in `scripts` and dashboard in `apps`.
 
+# Test
